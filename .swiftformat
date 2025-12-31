@@ -1,0 +1,19 @@
+# SwiftFormat configuration
+# Rules: https://github.com/nicklockwood/SwiftFormat/blob/main/Rules.md
+
+--swiftversion 5.0
+--maxwidth 120
+
+# Exclude build directories
+--exclude build,DerivedData,.build,Pods
+
+# Wrapping
+--wraparguments before-first
+--wrapparameters before-first
+--wrapcollections before-first
+--wrapternary before-operators
+
+# Disable rules
+--disable andOperator
+--disable wrapConditionalBodies
+--disable wrapLoopBodies

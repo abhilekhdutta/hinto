@@ -1,0 +1,10 @@
+// Hinto base build configuration
+// docs: https://help.apple.com/xcode/mac/11.4/#/itcaec37c2a6
+
+PRODUCT_NAME = Hinto
+PRODUCT_BUNDLE_IDENTIFIER = dev.yhao3.hinto
+MACOSX_DEPLOYMENT_TARGET = 13.0
+SWIFT_VERSION = 5.0
+INFOPLIST_FILE = Resources/Info.plist
+CODE_SIGN_ENTITLEMENTS = Resources/Hinto.entitlements
+ENABLE_HARDENED_RUNTIME = YES
