@@ -12,6 +12,18 @@
   Navigate any macOS app without a mouse using accessibility labels.
 </p>
 
+<p align="center">
+  <a href="https://github.com/yhao3/hinto/releases"><img src="https://img.shields.io/github/v/release/yhao3/hinto?label=Download" alt="Download"></a>
+  <a href="https://github.com/yhao3/hinto/actions"><img src="https://img.shields.io/github/actions/workflow/status/yhao3/hinto/build.yml?branch=main" alt="Build Status"></a>
+  <img src="https://img.shields.io/badge/platform-macOS%2013%2B-blue" alt="Platform">
+  <img src="https://img.shields.io/badge/Swift-5.9-orange?logo=swift" alt="Swift">
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/yhao3/hinto" alt="License"></a>
+</p>
+
+<p align="center">
+  <a href="https://ko-fi.com/yhao3"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Support on Ko-fi"></a>
+</p>
+
 ---
 
 ## Features
