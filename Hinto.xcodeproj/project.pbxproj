@@ -36,6 +36,8 @@
 		B10000010000000000000032 /* HitTestScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000020000000000000032 /* HitTestScanner.swift */; };
 		B10000010000000000000033 /* MenuBarScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000020000000000000033 /* MenuBarScanner.swift */; };
 		B10000010000000000000034 /* TimedScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000020000000000000034 /* TimedScanner.swift */; };
+		B10000010000000000000035 /* PerfScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000020000000000000035 /* PerfScanner.swift */; };
+		B10000010000000000000036 /* ScannerDecoratorRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000020000000000000036 /* ScannerDecoratorRegistry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,8 @@
 		B10000020000000000000032 /* HitTestScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitTestScanner.swift; sourceTree = "<group>"; };
 		B10000020000000000000033 /* MenuBarScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarScanner.swift; sourceTree = "<group>"; };
 		B10000020000000000000034 /* TimedScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedScanner.swift; sourceTree = "<group>"; };
+		B10000020000000000000035 /* PerfScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfScanner.swift; sourceTree = "<group>"; };
+		B10000020000000000000036 /* ScannerDecoratorRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerDecoratorRegistry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +194,8 @@
 				B10000020000000000000032 /* HitTestScanner.swift */,
 				B10000020000000000000033 /* MenuBarScanner.swift */,
 				B10000020000000000000034 /* TimedScanner.swift */,
+				B10000020000000000000035 /* PerfScanner.swift */,
+				B10000020000000000000036 /* ScannerDecoratorRegistry.swift */,
 			);
 			path = Scanners;
 			sourceTree = "<group>";
@@ -345,6 +351,8 @@
 				B10000010000000000000032 /* HitTestScanner.swift in Sources */,
 				B10000010000000000000033 /* MenuBarScanner.swift in Sources */,
 				B10000010000000000000034 /* TimedScanner.swift in Sources */,
+				B10000010000000000000035 /* PerfScanner.swift in Sources */,
+				B10000010000000000000036 /* ScannerDecoratorRegistry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

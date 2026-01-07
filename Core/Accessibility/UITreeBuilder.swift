@@ -12,21 +12,13 @@ final class UITreeBuilder {
         searchPredicateScanner: ElementScanner = SearchPredicateScanner(),
         treeTraversalScanner: ElementScanner = TreeTraversalScanner(),
         hitTestScanner: ElementScanner = HitTestScanner(),
-        menuBarScanner: ElementScanner = MenuBarScanner(),
-        enableTiming: Bool = UserDefaults.standard.bool(forKey: "debug-timing")
+        menuBarScanner: ElementScanner = MenuBarScanner()
     ) {
-        if enableTiming {
-            // Wrap scanners with timing when enabled
-            self.searchPredicateScanner = TimedScanner(searchPredicateScanner, name: "SearchPredicate")
-            self.treeTraversalScanner = TimedScanner(treeTraversalScanner, name: "TreeTraversal")
-            self.hitTestScanner = TimedScanner(hitTestScanner, name: "HitTest")
-            self.menuBarScanner = TimedScanner(menuBarScanner, name: "MenuBar")
-        } else {
-            self.searchPredicateScanner = searchPredicateScanner
-            self.treeTraversalScanner = treeTraversalScanner
-            self.hitTestScanner = hitTestScanner
-            self.menuBarScanner = menuBarScanner
-        }
+        // Wrap scanners with enabled decorators from registry (OCP)
+        self.searchPredicateScanner = ScannerDecoratorRegistry.wrap(searchPredicateScanner, name: "SearchPredicate")
+        self.treeTraversalScanner = ScannerDecoratorRegistry.wrap(treeTraversalScanner, name: "TreeTraversal")
+        self.hitTestScanner = ScannerDecoratorRegistry.wrap(hitTestScanner, name: "HitTest")
+        self.menuBarScanner = ScannerDecoratorRegistry.wrap(menuBarScanner, name: "MenuBar")
     }
 
     /// Build a UITree for the frontmost application's focused window

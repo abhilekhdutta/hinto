@@ -96,6 +96,24 @@ make log
 tail -f /tmp/hinto.log
 ```
 
+### Debug Options
+
+Enable hidden debug settings via `defaults`:
+
+```bash
+# Enable file logging to /tmp/hinto.log
+defaults write dev.yhao3.hinto debug-file-logging -bool true
+
+# Enable scanner timing logs (shows performance of each scanner)
+defaults write dev.yhao3.hinto debug-timing -bool true
+
+# Disable
+defaults write dev.yhao3.hinto debug-file-logging -bool false
+defaults write dev.yhao3.hinto debug-timing -bool false
+```
+
+Restart the app after changing settings.
+
 ## License
 
 MIT
