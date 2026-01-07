@@ -35,6 +35,7 @@
 		B10000010000000000000031 /* TreeTraversalScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000020000000000000031 /* TreeTraversalScanner.swift */; };
 		B10000010000000000000032 /* HitTestScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000020000000000000032 /* HitTestScanner.swift */; };
 		B10000010000000000000033 /* MenuBarScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000020000000000000033 /* MenuBarScanner.swift */; };
+		B10000010000000000000034 /* TimedScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000020000000000000034 /* TimedScanner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		B10000020000000000000031 /* TreeTraversalScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeTraversalScanner.swift; sourceTree = "<group>"; };
 		B10000020000000000000032 /* HitTestScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitTestScanner.swift; sourceTree = "<group>"; };
 		B10000020000000000000033 /* MenuBarScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarScanner.swift; sourceTree = "<group>"; };
+		B10000020000000000000034 /* TimedScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedScanner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				B10000020000000000000031 /* TreeTraversalScanner.swift */,
 				B10000020000000000000032 /* HitTestScanner.swift */,
 				B10000020000000000000033 /* MenuBarScanner.swift */,
+				B10000020000000000000034 /* TimedScanner.swift */,
 			);
 			path = Scanners;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				B10000010000000000000031 /* TreeTraversalScanner.swift in Sources */,
 				B10000010000000000000032 /* HitTestScanner.swift in Sources */,
 				B10000010000000000000033 /* MenuBarScanner.swift in Sources */,
+				B10000010000000000000034 /* TimedScanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
