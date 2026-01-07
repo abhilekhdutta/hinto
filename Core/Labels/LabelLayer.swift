@@ -233,4 +233,9 @@ struct LabelTheme {
         textColor: .white,
         borderColor: .white
     )
+
+    /// Create a custom theme with user-specified colors
+    static func custom(background: NSColor, text: NSColor, border: NSColor) -> LabelTheme {
+        LabelTheme(backgroundColor: background, textColor: text, borderColor: border)
+    }
 }

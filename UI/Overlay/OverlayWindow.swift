@@ -55,6 +55,12 @@ final class OverlayView: NSView {
         switch themeName {
         case "light": return .light
         case "blue": return .blue
+        case "custom":
+            return .custom(
+                background: Preferences.shared.customLabelBackground,
+                text: Preferences.shared.customLabelText,
+                border: Preferences.shared.customLabelBorder
+            )
         default: return .dark
         }
     }

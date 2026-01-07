@@ -396,105 +396,153 @@ struct AppearanceSettingsView: View {
     @AppStorage("label-theme") private var labelTheme = "dark"
     @AppStorage("label-size") private var labelSize = "medium"
 
+    // Custom color states
+    @State private var customBackground: Color = .init(Preferences.shared.customLabelBackground)
+    @State private var customText: Color = .init(Preferences.shared.customLabelText)
+    @State private var customBorder: Color = .init(Preferences.shared.customLabelBorder)
+
     var body: some View {
-        VStack(spacing: 0) {
-            SettingsRow("Appearance", colors: colors) {
-                HStack(spacing: 12) {
-                    AppearanceOption(
-                        icon: "sun.max",
-                        label: "Light",
-                        isSelected: appAppearance == "light",
-                        colors: colors
-                    ) {
-                        appAppearance = "light"
-                    }
+        ScrollView {
+            VStack(spacing: 0) {
+                SettingsRow("Appearance", colors: colors) {
+                    HStack(spacing: 12) {
+                        AppearanceOption(
+                            icon: "sun.max",
+                            label: "Light",
+                            isSelected: appAppearance == "light",
+                            colors: colors
+                        ) {
+                            appAppearance = "light"
+                        }
 
-                    AppearanceOption(
-                        icon: "moon",
-                        label: "Dark",
-                        isSelected: appAppearance == "dark",
-                        colors: colors
-                    ) {
-                        appAppearance = "dark"
-                    }
+                        AppearanceOption(
+                            icon: "moon",
+                            label: "Dark",
+                            isSelected: appAppearance == "dark",
+                            colors: colors
+                        ) {
+                            appAppearance = "dark"
+                        }
 
-                    AppearanceOption(
-                        icon: "circle.lefthalf.filled",
-                        label: "System",
-                        isSelected: appAppearance == "system",
-                        colors: colors
-                    ) {
-                        appAppearance = "system"
-                    }
-                }
-            }
-
-            SettingsRow("Label Theme", colors: colors) {
-                HStack(spacing: 12) {
-                    ThemeOption(
-                        icon: "sun.max",
-                        label: "Light",
-                        isSelected: labelTheme == "light",
-                        colors: colors
-                    ) {
-                        labelTheme = "light"
-                    }
-
-                    ThemeOption(
-                        icon: "moon",
-                        label: "Dark",
-                        isSelected: labelTheme == "dark",
-                        colors: colors
-                    ) {
-                        labelTheme = "dark"
-                    }
-
-                    ThemeOption(
-                        icon: "drop.fill",
-                        label: "Blue",
-                        isSelected: labelTheme == "blue",
-                        colors: colors
-                    ) {
-                        labelTheme = "blue"
+                        AppearanceOption(
+                            icon: "circle.lefthalf.filled",
+                            label: "System",
+                            isSelected: appAppearance == "system",
+                            colors: colors
+                        ) {
+                            appAppearance = "system"
+                        }
                     }
                 }
-            }
 
-            SettingsRow("Label Size", colors: colors) {
-                HStack(spacing: 12) {
-                    SizeOption(
-                        label: "S",
-                        isSelected: labelSize == "small",
-                        colors: colors
-                    ) {
-                        labelSize = "small"
-                    }
+                SettingsRow("Label Theme", colors: colors) {
+                    HStack(spacing: 12) {
+                        ThemeOption(
+                            icon: "sun.max",
+                            label: "Light",
+                            isSelected: labelTheme == "light",
+                            colors: colors
+                        ) {
+                            labelTheme = "light"
+                        }
 
-                    SizeOption(
-                        label: "M",
-                        isSelected: labelSize == "medium",
-                        colors: colors
-                    ) {
-                        labelSize = "medium"
-                    }
+                        ThemeOption(
+                            icon: "moon",
+                            label: "Dark",
+                            isSelected: labelTheme == "dark",
+                            colors: colors
+                        ) {
+                            labelTheme = "dark"
+                        }
 
-                    SizeOption(
-                        label: "L",
-                        isSelected: labelSize == "large",
-                        colors: colors
-                    ) {
-                        labelSize = "large"
+                        ThemeOption(
+                            icon: "drop.fill",
+                            label: "Blue",
+                            isSelected: labelTheme == "blue",
+                            colors: colors
+                        ) {
+                            labelTheme = "blue"
+                        }
+
+                        ThemeOption(
+                            icon: "paintpalette",
+                            label: "Custom",
+                            isSelected: labelTheme == "custom",
+                            colors: colors
+                        ) {
+                            labelTheme = "custom"
+                        }
                     }
                 }
-            }
 
-            SettingsRow("Preview", colors: colors) {
-                LabelPreview(theme: labelTheme, size: labelSize, colors: colors)
-            }
+                if labelTheme == "custom" {
+                    SettingsRow("Background", colors: colors) {
+                        ColorPicker("", selection: $customBackground, supportsOpacity: true)
+                            .labelsHidden()
+                            .onChange(of: customBackground) { newValue in
+                                Preferences.shared.customLabelBackground = NSColor(newValue)
+                            }
+                    }
 
-            Spacer()
+                    SettingsRow("Text", colors: colors) {
+                        ColorPicker("", selection: $customText, supportsOpacity: false)
+                            .labelsHidden()
+                            .onChange(of: customText) { newValue in
+                                Preferences.shared.customLabelText = NSColor(newValue)
+                            }
+                    }
+
+                    SettingsRow("Border", colors: colors) {
+                        ColorPicker("", selection: $customBorder, supportsOpacity: true)
+                            .labelsHidden()
+                            .onChange(of: customBorder) { newValue in
+                                Preferences.shared.customLabelBorder = NSColor(newValue)
+                            }
+                    }
+                }
+
+                SettingsRow("Label Size", colors: colors) {
+                    HStack(spacing: 12) {
+                        SizeOption(
+                            label: "S",
+                            isSelected: labelSize == "small",
+                            colors: colors
+                        ) {
+                            labelSize = "small"
+                        }
+
+                        SizeOption(
+                            label: "M",
+                            isSelected: labelSize == "medium",
+                            colors: colors
+                        ) {
+                            labelSize = "medium"
+                        }
+
+                        SizeOption(
+                            label: "L",
+                            isSelected: labelSize == "large",
+                            colors: colors
+                        ) {
+                            labelSize = "large"
+                        }
+                    }
+                }
+
+                SettingsRow("Preview", colors: colors) {
+                    LabelPreview(
+                        theme: labelTheme,
+                        size: labelSize,
+                        colors: colors,
+                        customBackground: customBackground,
+                        customText: customText,
+                        customBorder: customBorder
+                    )
+                }
+            }
+            .padding(.top, 16)
+            .padding(.bottom, 16)
         }
-        .padding(.top, 16)
     }
 }
 
@@ -612,11 +660,15 @@ struct LabelPreview: View {
     let theme: String
     let size: String
     let colors: SettingsColors
+    var customBackground: Color = .init(white: 0.2)
+    var customText: Color = .white
+    var customBorder: Color = .init(white: 0.4)
 
     var backgroundColor: Color {
         switch theme {
         case "light": return Color(white: 0.95)
         case "blue": return Color.blue
+        case "custom": return customBackground
         default: return Color(white: 0.2)
         }
     }
@@ -624,7 +676,17 @@ struct LabelPreview: View {
     var textColor: Color {
         switch theme {
         case "light": return .black
+        case "custom": return customText
         default: return .white
+        }
+    }
+
+    var borderColor: Color {
+        switch theme {
+        case "light": return Color(white: 0.7)
+        case "blue": return .white
+        case "custom": return customBorder
+        default: return Color(white: 0.4)
         }
     }
 
@@ -648,7 +710,7 @@ struct LabelPreview: View {
                     .cornerRadius(4)
                     .overlay(
                         RoundedRectangle(cornerRadius: 4)
-                            .stroke(textColor.opacity(0.3), lineWidth: 1)
+                            .stroke(borderColor, lineWidth: 1)
                     )
             }
         }
