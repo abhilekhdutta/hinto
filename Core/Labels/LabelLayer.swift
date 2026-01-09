@@ -53,10 +53,16 @@ final class LabelLayer: CALayer {
     }
 
     private func setupLayer() {
+        let scale = NSScreen.main?.backingScaleFactor ?? 2.0
+
+        // Set scale on self for Retina display
+        contentsScale = scale
+
         // Shape layer for speech bubble
         shapeLayer.fillColor = labelBackgroundColor.cgColor
         shapeLayer.strokeColor = labelBorderColor.cgColor
         shapeLayer.lineWidth = 1
+        shapeLayer.contentsScale = scale
         addSublayer(shapeLayer)
 
         // Shadow on shape
@@ -66,7 +72,7 @@ final class LabelLayer: CALayer {
         shapeLayer.shadowOpacity = 0.4
 
         // Text layer
-        textLayer.contentsScale = NSScreen.main?.backingScaleFactor ?? 2.0
+        textLayer.contentsScale = scale
         textLayer.alignmentMode = .center
         textLayer.truncationMode = .none
         addSublayer(textLayer)
