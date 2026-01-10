@@ -25,8 +25,10 @@ echo "==> Releasing v$VERSION"
 
 # 1. Update Info.plist version
 echo "==> Updating Info.plist..."
+BUILD_NUMBER=$(./Scripts/ci/version-to-build-number.sh "$VERSION")
 /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $VERSION" Resources/Info.plist
-/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $VERSION" Resources/Info.plist
+/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD_NUMBER" Resources/Info.plist
+echo "    Version: $VERSION (build $BUILD_NUMBER)"
 
 # 2. Commit version bump
 echo "==> Committing version bump..."
