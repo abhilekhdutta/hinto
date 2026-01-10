@@ -146,7 +146,9 @@ jobs:
           tar -xf /tmp/Sparkle.tar.xz -C /tmp/sparkle
 
           # Sign the DMG with EdDSA key
-          SIGNATURE=$(/tmp/sparkle/bin/sign_update "$APP_NAME.dmg" --ed-key-file <(echo "$SPARKLE_PRIVATE_KEY"))
+          echo "$SPARKLE_PRIVATE_KEY" > /tmp/sparkle_key
+          SIGNATURE=$(/tmp/sparkle/bin/sign_update "$APP_NAME.dmg" --ed-key-file /tmp/sparkle_key)
+          rm -f /tmp/sparkle_key
           echo "signature=$SIGNATURE" >> $GITHUB_OUTPUT
           echo "Sparkle signature: $SIGNATURE"
 
