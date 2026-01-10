@@ -162,7 +162,17 @@ jobs:
           VERSION=${{ steps.version.outputs.version }}
 
           # Extract content between current version and next version header (or EOF)
-          NOTES=$(awk "/^## \\[$VERSION\\]/{flag=1; next} /^## \\[/{flag=0} flag" Resources/CHANGELOG.md | sed '/^$/d')
+          # Trim leading/trailing blank lines while preserving internal blank lines
+          NOTES=$(awk '
+            /^## \['"$VERSION"'\]/ { flag=1; next }
+            /^## \[/ { flag=0 }
+            flag { lines[++n] = $0 }
+            END {
+              start = 1; while (start <= n && lines[start] == "") start++
+              end = n; while (end >= start && lines[end] == "") end--
+              for (i = start; i <= end; i++) print lines[i]
+            }
+          ' Resources/CHANGELOG.md)
 
           # Handle multiline output
           echo "notes<<EOF" >> $GITHUB_OUTPUT
