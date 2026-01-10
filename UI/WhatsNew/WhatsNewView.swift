@@ -103,7 +103,7 @@ final class WhatsNewWindowController: NSWindowController {
 
         let window = NSWindow(contentViewController: hostingController)
         window.title = "What's New"
-        window.styleMask = [.titled, .closable, .fullSizeContentView]
+        window.styleMask = [.titled, .fullSizeContentView]
         window.titlebarAppearsTransparent = true
         window.titleVisibility = .hidden
         window.isMovableByWindowBackground = true
