@@ -147,10 +147,14 @@ jobs:
 
           # Sign the DMG with EdDSA key
           echo "$SPARKLE_PRIVATE_KEY" > /tmp/sparkle_key
-          SIGNATURE=$(/tmp/sparkle/bin/sign_update "$APP_NAME.dmg" --ed-key-file /tmp/sparkle_key)
+          SIGN_OUTPUT=$(/tmp/sparkle/bin/sign_update "$APP_NAME.dmg" --ed-key-file /tmp/sparkle_key)
           rm -f /tmp/sparkle_key
+          echo "sign_update output: $SIGN_OUTPUT"
+
+          # Extract just the signature value from: sparkle:edSignature="xxx" length="xxx"
+          SIGNATURE=$(echo "$SIGN_OUTPUT" | sed -n 's/.*sparkle:edSignature="\([^"]*\)".*/\1/p')
           echo "signature=$SIGNATURE" >> $GITHUB_OUTPUT
-          echo "Sparkle signature: $SIGNATURE"
+          echo "Extracted signature: $SIGNATURE"
 
           # Get DMG size
           DMG_SIZE=$(stat -f%z "$APP_NAME.dmg")
