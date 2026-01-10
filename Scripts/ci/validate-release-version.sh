@@ -8,8 +8,8 @@ set -euo pipefail
 #
 # Checks:
 #   1. Version format is X.Y.Z
-#   2. Info.plist CFBundleShortVersionString matches
-#   3. Info.plist CFBundleVersion matches build number
+#   2. base.xcconfig MARKETING_VERSION matches
+#   3. base.xcconfig CURRENT_PROJECT_VERSION matches build number
 #   4. CHANGELOG.md has entry for this version
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -31,22 +31,22 @@ if ! echo "$VERSION" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
 fi
 echo "Format: OK"
 
-# 2. Validate Info.plist CFBundleShortVersionString matches
-PLIST_VERSION=$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" Resources/Info.plist)
-if [ "$PLIST_VERSION" != "$VERSION" ]; then
-    echo "::error::Info.plist CFBundleShortVersionString ($PLIST_VERSION) doesn't match tag ($VERSION)" >&2
+# 2. Validate base.xcconfig MARKETING_VERSION matches
+XCCONFIG_VERSION=$(grep "^MARKETING_VERSION" Config/base.xcconfig | sed 's/.*= *//')
+if [ "$XCCONFIG_VERSION" != "$VERSION" ]; then
+    echo "::error::base.xcconfig MARKETING_VERSION ($XCCONFIG_VERSION) doesn't match tag ($VERSION)" >&2
     exit 1
 fi
-echo "CFBundleShortVersionString: OK ($PLIST_VERSION)"
+echo "MARKETING_VERSION: OK ($XCCONFIG_VERSION)"
 
-# 3. Validate Info.plist CFBundleVersion matches build number
+# 3. Validate base.xcconfig CURRENT_PROJECT_VERSION matches build number
 EXPECTED_BUILD_NUMBER=$("$SCRIPT_DIR/version-to-build-number.sh" "$VERSION")
-PLIST_BUILD=$(/usr/libexec/PlistBuddy -c "Print :CFBundleVersion" Resources/Info.plist)
-if [ "$PLIST_BUILD" != "$EXPECTED_BUILD_NUMBER" ]; then
-    echo "::error::Info.plist CFBundleVersion ($PLIST_BUILD) doesn't match expected build number ($EXPECTED_BUILD_NUMBER). Update Info.plist: <key>CFBundleVersion</key><string>$EXPECTED_BUILD_NUMBER</string>" >&2
+XCCONFIG_BUILD=$(grep "^CURRENT_PROJECT_VERSION" Config/base.xcconfig | sed 's/.*= *//')
+if [ "$XCCONFIG_BUILD" != "$EXPECTED_BUILD_NUMBER" ]; then
+    echo "::error::base.xcconfig CURRENT_PROJECT_VERSION ($XCCONFIG_BUILD) doesn't match expected ($EXPECTED_BUILD_NUMBER). Update: CURRENT_PROJECT_VERSION = $EXPECTED_BUILD_NUMBER" >&2
     exit 1
 fi
-echo "CFBundleVersion: OK ($PLIST_BUILD)"
+echo "CURRENT_PROJECT_VERSION: OK ($XCCONFIG_BUILD)"
 
 # 4. Validate CHANGELOG.md has entry for this version
 if ! grep -q "^## \[$VERSION\]" Resources/CHANGELOG.md; then

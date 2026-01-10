@@ -23,16 +23,16 @@ fi
 
 echo "==> Releasing v$VERSION"
 
-# 1. Update Info.plist version
-echo "==> Updating Info.plist..."
+# 1. Update version in xcconfig
+echo "==> Updating base.xcconfig..."
 BUILD_NUMBER=$(./Scripts/ci/version-to-build-number.sh "$VERSION")
-/usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $VERSION" Resources/Info.plist
-/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD_NUMBER" Resources/Info.plist
+sed -i '' "s/^MARKETING_VERSION = .*/MARKETING_VERSION = $VERSION/" Config/base.xcconfig
+sed -i '' "s/^CURRENT_PROJECT_VERSION = .*/CURRENT_PROJECT_VERSION = $BUILD_NUMBER/" Config/base.xcconfig
 echo "    Version: $VERSION (build $BUILD_NUMBER)"
 
 # 2. Commit version bump
 echo "==> Committing version bump..."
-git add Resources/Info.plist
+git add Config/base.xcconfig
 git commit -m "Bump version to $VERSION"
 git push
 
